@@ -1,0 +1,17 @@
+.row{
+    padding: 20px;
+    border-style: double;
+    border-radius: 10px;
+    margin: 10px;
+    margin-right: 20px;
+}
+h1{
+    margin: 10px;
+    text-decoration: underline;
+}
+a{
+    float: right;
+}
+#tituloEdu{
+    font-weight: bolder;
+}

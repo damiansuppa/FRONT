@@ -1,0 +1,65 @@
+<div class="row" *ngIf="persona">
+    <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+        <img src="{{persona.fotoperfil}}" class="img-fluid" id="cv">
+    </div>
+    <div class="col-xs-12 col-sm-2 col-md-3 col-lg-3">
+        <p id="nombre">{{persona?.nombre}} {{persona?.apellido}}</p>
+        <p>{{persona?.titulo}}</p>
+    </div>
+    <div class="col-xs-12 col-sm-8 col-md-5 col-lg-5 text-center" id="btn-edit">
+        <span>
+            <h1>Acerca de mi</h1>
+            
+            <p>{{persona.descripcion}}</p>
+            
+        </span>
+        
+    </div>
+    <div class="col-1 btn-edit">
+        <a
+            (click)="onOpenModal('edit', persona)"
+            class="btn btn-primary tooltips"
+            data-bs-target="#editPersonaModal"            
+            data-bs-toggle="modal"
+            data-placement="top"
+            data-original-title="Edit">
+            <i class="fa-solid fa-pencil"></i>
+        </a>
+    </div>
+</div>
+<!--edit persona-->
+<div class="modal fade" id="editPersonaModal" tabindex="-1" aria-labelledby="personaEditModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">        
+        <div class="modal-body">
+          <form #editForm="ngForm">
+            <div class="mb-3">
+              <label for="nombre" class="col-form-label">nombre</label>
+              <input type="text" ngModel="{{updatePersona?.nombre}}" name="nombre" class="form-control" id="nombre">
+            </div>
+            <div class="mb-3">
+              <label for="apellido" class="col-form-label">apellido</label>
+              <input type="text" ngModel="{{updatePersona?.apellido}}" name="apellido" class="form-control" id="apellido">
+            </div>
+            <div class="mb-3">
+              <label for="titulo" class="col-form-label">titulo</label>
+              <input type="text" ngModel="{{ updatePersona?.titulo }}" name="titulo" class="form-control" id="titulo">
+            </div>
+            <div class="mb-3">
+              <label for="descripcion" class="col-form-label">descripcion</label>
+              <input type="text" ngModel="{{ updatePersona?.descripcion }}" name="descripcion" class="form-control" id="descripcion">
+            </div>
+            <div class="mb-3">
+                <label for="fotoperfil" class="col-form-label">fotoperfil</label>
+                <input type="text" ngModel="{{ updatePersona?.fotoperfil }}" name="fotoperfil" class="form-control" id="fotoperfil">
+              </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button (click)="onUpdatePersona(editForm.value)" data-bs-dismiss="modal" class="btn btn-primary">Añadir cambios</button>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
