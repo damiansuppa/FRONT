@@ -8,7 +8,7 @@ import { Skills } from '../model/skills';
   providedIn: 'root'
 })
 export class SkillsService {
-  private apiServerUrl=environment.apiBaseUrl;
+  private apiServerUrl='https://damianportfolio.herokuapp.com';
 
   constructor(private http:HttpClient) { }
   public getSkills():Observable<Skills[]>{
